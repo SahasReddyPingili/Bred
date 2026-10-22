@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BESPOKE LAB™ Custom Studio — [UNTITLED™] Archive</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-category="custom" class="custom-theme">
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 999; display: none;"></canvas>
+
+    <!-- Top Announcement Marquee Ticker -->
+    <aside class="announcement-bar" aria-label="Announcements">
+        <div class="ticker-track">
+            <div class="ticker-item"><span class="ticker-tag" style="background: #9d4edd; color: #fff;">[BESPOKE LAB]</span> CAMPUS CUSTOM STUDIO ACTIVE // TRANSPARENT PNG READY</div>
+            <span class="ticker-bullet"></span>
+            <div class="ticker-item"><span class="ticker-tag">[3D PUFF]</span> HIGH-DENSITY FOAM PUFF PRINTING THAT NEVER CRACKS IN DORM WASH</div>
+            <span class="ticker-bullet"></span>
+            <div class="ticker-item"><span class="ticker-tag">[DORM CLUBS]</span> BULK ORDERS: 10+ PIECES QUALIFY FOR CAMPUS CLUB DISCOUNTS</div>
+            <span class="ticker-bullet"></span>
+            <div class="ticker-item"><span class="ticker-tag">[STUDENT PASS]</span> CODE "CAMPUS20" APPLIES 20% TO ALL BESPOKE RUNS</div>
+            <span class="ticker-bullet"></span>
+            <!-- Marquee duplicate -->
+            <div class="ticker-item"><span class="ticker-tag" style="background: #9d4edd; color: #fff;">[BESPOKE LAB]</span> CAMPUS CUSTOM STUDIO ACTIVE // TRANSPARENT PNG READY</div>
+            <span class="ticker-bullet"></span>
+            <div class="ticker-item"><span class="ticker-tag">[3D PUFF]</span> HIGH-DENSITY FOAM PUFF PRINTING THAT NEVER CRACKS IN DORM WASH</div>
+            <span class="ticker-bullet"></span>
+            <div class="ticker-item"><span class="ticker-tag">[DORM CLUBS]</span> BULK ORDERS: 10+ PIECES QUALIFY FOR CAMPUS CLUB DISCOUNTS</div>
+        </div>
+    </aside>
+
+    <!-- Main Site Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="brand-identity">
+                    <span class="brand-logo-text">
+                        <span class="brand-dynamic-text">[UNTITLED]</span><span class="brand-tm">™</span>
+                    </span>
+                    <span class="brand-subtext">DIVISION 03 // BESPOKE LAB</span>
+                </a>
+
+                <nav class="desktop-nav">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="nav-link">DIVISIONS</a></li>
+                        <li><a href="f1.html" class="nav-link">F1 PADDOCK</a></li>
+                        <li><a href="sports.html" class="nav-link">SPORTS ARCHIVE</a></li>
+                        <li><a href="custom.html" class="nav-link active">BESPOKE LAB</a></li>
+                        <li><a href="streetwear.html" class="nav-link">STREETWEAR</a></li>
+                        <li><a href="size-advisor.html" class="nav-link">SIZE ADVISOR</a></li>
+                        <li><a href="student-pass.html" class="nav-link">STUDENT PASS<span class="nav-badge-pill">-20%</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="nav-actions">
+                <button class="cart-btn" onclick="openCartDrawer()" aria-label="Open shopping cart">
+                    <span>BAG</span>
+                    <span class="cart-counter">0</span>
+                </button>
+
+                <button class="mobile-hamburger-btn" id="mobileMenuToggle" onclick="toggleMobileNav()" aria-label="Toggle navigation menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slide-Out Mobile Navigation Drawer -->
+    <div class="mobile-drawer-overlay" id="mobileNavDrawer" onclick="handleMobileBackdropClick(event)">
+        <aside class="mobile-nav-panel" aria-label="Mobile Navigation">
+            <div class="mobile-nav-header">
+                <div class="brand-identity">
+                    <span class="brand-logo-text">
+                        <span class="brand-dynamic-text">[UNTITLED]</span><span class="brand-tm">™</span>
+                    </span>
+                    <span class="brand-subtext">DIVISION 03 // BESPOKE LAB</span>
+                </div>
+                <button class="mobile-nav-close-btn" onclick="closeMobileNav()" aria-label="Close navigation">✕</button>
+            </div>
+
+            <div class="mobile-nav-scroll">
+                <div class="mobile-nav-section-label">THE 4 DIVISIONS</div>
+                <ul class="mobile-nav-menu">
+                    <li>
+                        <a href="index.html" class="mobile-menu-item">
+                            <span class="mobile-item-index">00</span>
+                            <span class="mobile-item-name">ALL DIVISIONS OVERVIEW</span>
+                            <span class="mobile-item-arrow">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="f1.html" class="mobile-menu-item">
+                            <span class="mobile-item-index">01</span>
+                            <span class="mobile-item-name">F1 PADDOCK MERCH</span>
+                            <span class="mobile-item-tag" style="color: #ff1801;">RACE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sports.html" class="mobile-menu-item">
+                            <span class="mobile-item-index">02</span>
+                            <span class="mobile-item-name">SPORTS & VARSITY</span>
+                            <span class="mobile-item-tag" style="color: #00f0ff;">ATHLETICS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="custom.html" class="mobile-menu-item" style="border-left: 3px solid #9d4edd; background: rgba(157, 78, 221, 0.08);">
+                            <span class="mobile-item-index" style="color: #9d4edd;">03</span>
+                            <span class="mobile-item-name" style="color: #fff;">BESPOKE LAB STUDIO</span>
+                            <span class="mobile-item-tag" style="color: #9d4edd;">ACTIVE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="streetwear.html" class="mobile-menu-item">
+                            <span class="mobile-item-index">04</span>
+                            <span class="mobile-item-name">HEAVYWEIGHT STREETWEAR</span>
+                            <span class="mobile-item-tag" style="color: var(--accent-volt);">200+ GSM</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="mobile-nav-section-label" style="margin-top: 24px;">STUDENT TOOLS & SERVICES</div>
+                <ul class="mobile-nav-menu secondary">
+                    <li>
+                        <a href="student-pass.html" class="mobile-menu-item">
+                            <span class="mobile-item-name">STUDENT PASS VERIFICATION</span>
+                            <span class="nav-badge-pill">-20%</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="size-advisor.html" class="mobile-menu-item">
+                            <span class="mobile-item-name">INTERACTIVE SIZE ADVISOR</span>
+                            <span class="mobile-item-arrow">→</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="mobile-nav-actions-grid">
+                    <button class="mobile-util-action-btn" onclick="closeMobileNav(); triggerSplitIntro();">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"/>
+                        </svg>
+                        <span>SPLIT INTRO</span>
+                    </button>
+                    <button class="mobile-util-action-btn" onclick="closeMobileNav(); document.getElementById('liveRebrandInput').focus();">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                        <span>RENAME BRAND</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mobile-nav-bottom-action">
+                <button class="btn-primary" style="width: 100%; border-radius: var(--radius-sm);" onclick="closeMobileNav(); openCartDrawer();">
+                    VIEW BAG (<span class="cart-counter">0</span> ITEMS)
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Custom Studio Dedicated Hero Section -->
+    <main>
+        <section class="division-hero-section">
+            <div class="division-hero-banner">
+                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1400&q=80" alt="Bespoke Studio" class="division-hero-bg">
+                <div class="division-hero-overlay"></div>
+
+                <div class="division-hero-content">
+                    <a href="index.html" class="division-breadcrumb">
+                        <span>←</span> BACK TO ALL DIVISIONS
+                    </a>
+                    
+                    <div class="division-hero-tag">
+                        <span class="live-pulse" style="background: #9d4edd; box-shadow: 0 0 10px #9d4edd;"></span>
+                        <span>DIVISION 03 // BESPOKE LAB ATELIER</span>
+                    </div>
+
+                    <h1 class="division-hero-title">
+                        BESPOKE LAB™<br>
+                        <span style="color: #c77dff; text-shadow: 0 0 30px rgba(157, 78, 221, 0.45);">CUSTOM STUDIO.</span>
+                    </h1>
+
+                    <p class="division-hero-desc">
+                        Our interactive digital printing press. Upload transparent PNG graphics for your dorm floor, student organization, engineering society, or graduation class. Rendered live with authentic 3D high-density foam puff ink and metallic Japanese chainstitch embroidery.
+                    </p>
+
+                    <div class="hero-actions" style="margin-top: 10px;">
+                        <a href="#workbench" class="btn-primary" style="background: #9d4edd; color: #fff; box-shadow: 0 0 25px rgba(157, 78, 221, 0.4);">
+                            <span>LAUNCH WORKBENCH BELOW</span>
+                            <span>↓</span>
+                        </a>
+                        <button class="btn-secondary" onclick="openStudentPassModal()">
+                            <span>CLAIM STUDENT PASS (-20%)</span>
+                        </button>
+                    </div>
+
+                    <div class="division-stats-grid">
+                        <div class="division-stat-box">
+                            <span class="division-stat-value">3D PUFF</span>
+                            <span class="division-stat-label">HIGH-DENSITY FOAM INK</span>
+                        </div>
+                        <div class="division-stat-box">
+                            <span class="division-stat-value">PNG / WEBP</span>
+                            <span class="division-stat-label">BACKGROUND-LESS ARTWORK</span>
+                        </div>
+                        <div class="division-stat-box">
+                            <span class="division-stat-value">48 HR</span>
+                            <span class="division-stat-label">RAPID CUSTOM CURE TIME</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customizer Specs HUD -->
+                <div class="division-hud-card">
+                    <div class="hud-header">
+                        <span class="hud-title">ATELIER PRINTER SPECIFICATIONS</span>
+                        <span class="hud-indicator" style="color: #c77dff;">
+                            <span class="live-pulse" style="background: #9d4edd;"></span>
+                            PRESS ACTIVE
+                        </span>
+                    </div>
+
+                    <div class="hud-data-row">
+                        <span class="hud-data-label">PUFF FOAM CURE TEMPERATURE:</span>
+                        <span class="hud-data-val" style="color: #c77dff;">165°C HEAT PRESS</span>
+                    </div>
+                    <div class="hud-data-row">
+                        <span class="hud-data-label">SUPPORTED FORMATS:</span>
+                        <span class="hud-data-val">PNG (ALPHA TRANSPARENT), WEBP, SVG</span>
+                    </div>
+                    <div class="hud-data-row">
+                        <span class="hud-data-label">EMBROIDERY SPECIFICATION:</span>
+                        <span class="hud-data-val">MADEIRA METALLIC CHAINSTITCH</span>
+                    </div>
+                    <div class="hud-data-row">
+                        <span class="hud-data-label">MINIMUM ORDER QUANTITY:</span>
+                        <span class="hud-data-val">1 PIECE (NO MINIMUMS)</span>
+                    </div>
+                    <div class="hud-data-row">
+                        <span class="hud-data-label">CLUB BULK DISCOUNT:</span>
+                        <span class="hud-data-val" style="color: var(--accent-volt);">10+ UNITS: 25% OFF</span>
+                    </div>
+
+                    <div style="margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
+                        <span>PRINT BED: 450mm x 550mm</span>
+                        <span style="color: #c77dff;">CAMPUS LAB READY</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL-PAGE INTERACTIVE ATELIER WORKBENCH -->
+        <section class="division-specs-section" id="workbench">
+            <div class="dedicated-atelier-workbench">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 18px;">
+                    <div>
+                        <span class="section-label">[INTERACTIVE ATELIER WORKBENCH]</span>
+                        <h2 style="font-family: var(--font-heading); font-size: 2rem; margin: 4px 0;">DESIGN YOUR BESPOKE GARMENT</h2>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                            Upload transparent PNG graphics, test 3D puff finishes, and preview your campus garment in real time.
+                        </p>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-volt); background: rgba(212, 255, 0, 0.08); padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid rgba(212, 255, 0, 0.2);">
+                        LIVE 3D RENDER ENGINE ACTIVE
+                    </span>
+                </div>
+
+                <div class="custom-studio-grid">
+                    <!-- Live Mockup Display -->
+                    <div class="custom-mockup-preview" id="customMockupContainer">
+                        <img id="customGarmentImg" src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=700&q=80" alt="Blank Mockup" class="custom-mockup-garment">
+                        
+                        <!-- Uploaded Transparent PNG Graphic -->
+                        <img id="customUploadedGraphic" class="custom-uploaded-graphic" style="display: none;" alt="Custom Uploaded Graphic">
+
+                        <!-- Custom Text Overlay -->
+                        <div class="custom-text-overlay puff" id="customTextOverlay" style="color: var(--accent-volt);">
+                            DORM 4B // '26
+                        </div>
+                        <span style="position: absolute; bottom: 12px; left: 14px; font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">
+                            [LIVE 3D PUFF & GRAPHIC RENDER]
+                        </span>
+                    </div>
+
+                    <!-- Customizer Controls -->
+                    <div style="display: flex; flex-direction: column; gap: 18px;">
+                        <div>
+                            <label style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); display: block; margin-bottom: 8px;">1. CHOOSE BASE SILHOUETTE BLANK:</label>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="size-pill active" id="btnBlankHoodie" onclick="selectCustomBlank('hoodie')">200+ GSM HEAVYWEIGHT HOODIE ($84)</button>
+                                <button class="size-pill" id="btnBlankTee" onclick="selectCustomBlank('tee')">200+ GSM BOXY VINTAGE TEE ($48)</button>
+                            </div>
+                        </div>
+
+                        <!-- Transparent PNG Upload Zone -->
+                        <div>
+                            <label style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-volt); display: block; margin-bottom: 8px;">
+                                2. UPLOAD TRANSPARENT PNG GRAPHIC (NO BACKGROUND):
+                            </label>
+                            <input type="file" id="customPngUploadInput" accept="image/png, image/webp" style="display: none;" onchange="handleCustomPngUpload(event)">
+                            <div class="custom-upload-dropzone" onclick="document.getElementById('customPngUploadInput').click()" title="Click to upload transparent PNG">
+                                <div class="upload-icon-badge">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="17 8 12 3 7 8"/>
+                                        <line x1="12" y1="3" x2="12" y2="15"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong style="color: #fff; font-size: 0.84rem; display: block;">UPLOAD CLUB / DORM ARTWORK PNG</strong>
+                                    <span style="font-size: 0.72rem; color: var(--text-muted); display: block;">Transparent PNG files without background (Supports up to 15MB)</span>
+                                </div>
+                            </div>
+
+                            <!-- Graphic Controls -->
+                            <div class="uploaded-graphic-controls" id="uploadedGraphicControls" style="margin-top: 10px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">GRAPHIC RESIZE:</span>
+                                    <button onclick="removeUploadedGraphic()" style="color: var(--accent-coral); font-size: 0.72rem; font-family: var(--font-mono); background: none; border: none; cursor: pointer;">✕ REMOVE GRAPHIC</button>
+                                </div>
+                                <input type="range" id="graphicScaleSlider" min="50" max="180" value="110" oninput="adjustGraphicScale(this.value)">
+                                <div style="display: flex; gap: 6px;">
+                                    <button class="fit-chip active" id="btnPosCenter" onclick="setGraphicPosition('center')">CHEST CENTER</button>
+                                    <button class="fit-chip" id="btnPosPocket" onclick="setGraphicPosition('pocket')">POCKET LEFT</button>
+                                    <button class="fit-chip" id="btnPosBack" onclick="setGraphicPosition('back')">OVERSIZED BACK</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); display: block; margin-bottom: 8px;">3. CUSTOM DORM, GRADUATION OR CLUB TEXT (MAX 18 CHARS):</label>
+                            <input type="text" id="customTextInput" maxlength="18" value="DORM 4B // '26" oninput="updateCustomPreview()"
+                                style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 6px; color: #fff; font-family: var(--font-heading); font-size: 1rem; font-weight: 700; outline: none; text-transform: uppercase;">
+                        </div>
+
+                        <div>
+                            <label style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); display: block; margin-bottom: 8px;">4. CHOOSE PRINT / EMBROIDERY FINISH:</label>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="fit-chip active" id="btnPuffFinish" onclick="selectCustomFinish('puff')">3D HIGH-DENSITY PUFF</button>
+                                <button class="fit-chip" id="btnStitchFinish" onclick="selectCustomFinish('embroidery')">METALLIC CHAINSTITCH</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); display: block; margin-bottom: 8px;">5. INK / THREAD COLOR:</label>
+                            <div style="display: flex; gap: 10px;">
+                                <button onclick="setCustomColor('#d3982d', 'Amber Gold')" style="width: 30px; height: 30px; border-radius: 50%; background: #d3982d; border: 2px solid #fff; cursor: pointer;" title="Amber Gold"></button>
+                                <button onclick="setCustomColor('#d65e12', 'Safety Orange')" style="width: 30px; height: 30px; border-radius: 50%; background: #d65e12; border: 1px solid rgba(255,255,255,0.4); cursor: pointer;" title="Safety Orange"></button>
+                                <button onclick="setCustomColor('#954727', 'Earthy Rust')" style="width: 30px; height: 30px; border-radius: 50%; background: #954727; border: 1px solid rgba(255,255,255,0.4); cursor: pointer;" title="Earthy Rust"></button>
+                                <button onclick="setCustomColor('#c3b091', 'Desert Sand')" style="width: 30px; height: 30px; border-radius: 50%; background: #c3b091; border: 1px solid rgba(255,255,255,0.4); cursor: pointer;" title="Desert Sand"></button>
+                                <button onclick="setCustomColor('#ffffff', 'Chalk White')" style="width: 30px; height: 30px; border-radius: 50%; background: #ffffff; border: 1px solid rgba(255,255,255,0.4); cursor: pointer;" title="Chalk White"></button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); display: block; margin-bottom: 8px;">6. CHOOSE SIZE:</label>
+                            <div style="display: flex; gap: 6px;" id="customSizePicker">
+                                <button class="size-pill" onclick="selectCustomSize('S', this)">S</button>
+                                <button class="size-pill" onclick="selectCustomSize('M', this)">M</button>
+                                <button class="size-pill active" onclick="selectCustomSize('L', this)">L</button>
+                                <button class="size-pill" onclick="selectCustomSize('XL', this)">XL</button>
+                                <button class="size-pill" onclick="selectCustomSize('XXL', this)">XXL</button>
+                            </div>
+                        </div>
+
+                        <button class="btn-primary" onclick="addCustomItemToBag()" style="width: 100%; padding: 16px; margin-top: 10px; background: #9d4edd; color: #fff; box-shadow: 0 0 25px rgba(157, 78, 221, 0.4);">
+                            ADD BESPOKE GARMENT TO BAG
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Division Ready Catalog -->
+        <section class="catalog-section" id="custom-catalog">
+            <div class="catalog-header">
+                <div>
+                    <span class="section-label">[DIVISION 03 RELEASES]</span>
+                    <h2 class="section-heading" id="catalogHeading">BESPOKE LAB CUSTOMISATIONS</h2>
+                    <p class="section-subtext">Pre-configured custom base blanks ready for your personalization.</p>
+                </div>
+
+                <div class="catalog-controls">
+                    <div class="sort-wrapper">
+                        <select class="sort-select" onchange="setSorting(this.value)" aria-label="Sort Custom products">
+                            <option value="featured">SORT: FEATURED CUSTOM BLANKS</option>
+                            <option value="price-low">PRICE: LOWEST FIRST</option>
+                            <option value="price-high">PRICE: HIGHEST FIRST</option>
+                            <option value="gsm">HEAVIEST FABRIC (200+ GSM FIRST)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Injected dynamically via app.js with category="custom" -->
+            <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <!-- Dorm & Club Bulk Orders Box -->
+        <section class="countdown-section" style="margin-top: 60px;">
+            <div class="countdown-box" style="max-width: 760px;">
+                <span class="section-label" style="color: #c77dff;">[DORM / CLUB BULK PACKAGES]</span>
+                <h3 class="section-heading" style="margin-bottom: 8px;">ORDERING FOR YOUR DORM FLOOR OR SOCIETY?</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+                    We manufacture custom heavyweight gear for college societies, fraternity/sorority formals, hackathon organizer teams, and intramural squads. Get 25% off 10+ pieces plus a single free bulk delivery to your campus dorm.
+                </p>
+
+                <form class="notify-form" onsubmit="event.preventDefault(); showToast('Bulk dorm inquiry submitted: Our campus printer will email you within 2 hours!');">
+                    <input type="text" placeholder="College name, club name, & estimated quantity..." class="notify-input" style="flex: 2;" required>
+                    <button type="submit" class="notify-submit" style="background: #9d4edd; color: #fff;">GET BULK QUOTE</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="brand-identity">
+                    <span class="brand-logo-text">
+                        <span class="brand-dynamic-text">[UNTITLED]</span><span class="brand-tm">™</span>
+                    </span>
+                    <span class="brand-subtext">DIVISION 03 // BESPOKE LAB</span>
+                </div>
+                <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6; margin-top: 12px;">
+                    An independent streetwear label dedicated to heavyweight fabrications, authentic oversized draping, and reachable student pricing.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-col-title">THE DIVISIONS</h4>
+                <ul class="footer-links">
+                    <li><a href="f1.html" class="footer-link">Apex F1 Paddock Merch</a></li>
+                    <li><a href="sports.html" class="footer-link">Varsity 94 Athletics</a></li>
+                    <li><a href="custom.html" class="footer-link">Bespoke Lab Studio</a></li>
+                    <li><a href="streetwear.html" class="footer-link">200+ GSM Heavyweight Streetwear</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-col-title">COLLEGE PERKS</h4>
+                <ul class="footer-links">
+                    <li><a href="student-pass.html" class="footer-link">Verify Student Pass (-20%)</a></li>
+                    <li><a href="size-advisor.html" class="footer-link">Interactive Size Advisor</a></li>
+                    <li><a href="index.html#lookbook" class="footer-link">Campus Rep Ambassador Program</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('Free dorm delivery applies on orders over $65')" class="footer-link">Dorm Room Delivery Hubs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-col-title">CUSTOMER CARE</h4>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)" onclick="showToast('30-Day Hassle-Free Returns with pre-paid dorm return label')" class="footer-link">Returns & Exchanges</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('Care Tip: Wash cold, hang dry to preserve 3D puff print.')" class="footer-link">Wash & Fabric Care Guide</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('Campus Support Desk: support@campus-archive.com')" class="footer-link">Campus Support Desk</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('All items are 100% genuine heavyweight fabrications')" class="footer-link">Authenticity Guarantee</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <span>© 2026 <span class="brand-dynamic-text">[UNTITLED]</span> ARCHIVE. ALL RIGHTS RESERVED.</span>
+            <span>DESIGNED FOR UNIVERSITY LIFESTYLE • WORLDWIDE CAMPUS FULFILLMENT</span>
+        </div>
+    </footer>
+
+        <!-- Slide-Over Shopping Cart Drawer -->
+    <div class="cart-drawer-backdrop" id="cartDrawerBackdrop">
+        <aside class="cart-drawer" aria-label="Shopping Cart">
+            <!-- Cart Header -->
+            <div class="cart-header">
+                <div class="cart-header-left">
+                    <span class="cart-pill-tag">OFFICIAL ARCHIVE</span>
+                    <h3 class="cart-title">
+                        <span>YOUR BAG</span>
+                        <span class="cart-title-badge cart-counter">0</span>
+                    </h3>
+                </div>
+                <button class="cart-close-btn" onclick="closeCartDrawer()" aria-label="Close cart">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Free Campus Shipping Progress Bar -->
+            <div class="shipping-meter">
+                <div class="shipping-meter-text" id="shippingProgressText">
+                    <span>Free Campus Delivery at $65.00</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="meter-track">
+                    <div class="meter-fill" id="shippingProgressBar" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- VIEW 1: CART ITEMS & SUMMARY VIEW -->
+            <div class="cart-view-container" id="cartItemsView">
+                <!-- Items List -->
+                <div class="cart-items-list" id="cartItemsList">
+                    <!-- Items populated dynamically via app.js -->
+                </div>
+
+                <!-- Cart Footer with Instant Coupon & Checkout Action -->
+                <div class="cart-footer">
+                    <!-- Quick 1-Click Student Pass Discount Banner -->
+                    <div class="student-pass-cart-banner" id="studentPassCartBanner" onclick="applyCoupon('CAMPUS20')">
+                        <div class="pass-banner-left">
+                            <span class="pass-banner-tag">STUDENT PASS</span>
+                            <span class="pass-banner-text">Tap to apply <strong>20% OFF</strong> code <strong>CAMPUS20</strong></span>
+                        </div>
+                        <span class="pass-banner-action">APPLY -20%</span>
+                    </div>
+
+                    <div id="appliedCouponContainer"></div>
+
+                    <!-- Manual Promo Code Row -->
+                    <div class="coupon-row">
+                        <input type="text" id="couponInput" placeholder="PROMO CODE (e.g. CAMPUS20)" class="coupon-input">
+                        <button class="coupon-apply-btn" onclick="applyCoupon()">APPLY</button>
+                    </div>
+
+                    <!-- Cost Breakdown with Perfect Information -->
+                    <div class="cart-summary-box">
+                        <div class="cart-summary-line">
+                            <span>Bag Subtotal</span>
+                            <span id="cartSubtotal" class="mono-val">$0.00</span>
+                        </div>
+
+                        <div class="cart-summary-line highlight" id="cartDiscountRow" style="display: none;">
+                            <span>Student Pass Discount (20%)</span>
+                            <span id="cartDiscountAmount" class="mono-val">-$0.00</span>
+                        </div>
+
+                        <div class="cart-summary-line">
+                            <span>Campus / Dorm Express Shipping</span>
+                            <span id="cartShipping" class="mono-val">$6.50</span>
+                        </div>
+
+                        <div class="cart-summary-line subtext-line">
+                            <span class="delivery-eta-badge">Estimated Dorm Arrival: 2–3 Days</span>
+                            <span class="spec-verified-tag">200+ GSM VERIFIED</span>
+                        </div>
+
+                        <div class="cart-summary-total">
+                            <div class="total-label-wrap">
+                                <span class="total-label">TOTAL</span>
+                                <span class="tax-note">All duties & taxes included</span>
+                            </div>
+                            <span id="cartTotal" class="total-amount">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Reassurance Trust Badges -->
+                    <div class="cart-trust-grid">
+                        <div class="trust-pill"><span>100% Cotton</span></div>
+                        <div class="trust-pill"><span>30-Day Campus Exchanges</span></div>
+                        <div class="trust-pill"><span>Recycled Packaging</span></div>
+                    </div>
+
+                    <!-- Primary Action Button -->
+                    <button class="checkout-btn" onclick="openCartCheckoutStep()" id="proceedToCheckoutBtn">
+                        <span>PROCEED TO EXPRESS CHECKOUT</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- VIEW 2: FAST EXPRESS DORM CHECKOUT -->
+            <div class="cart-view-container" id="cartCheckoutView" style="display: none;">
+                <div class="checkout-view-header">
+                    <button class="cart-back-btn" onclick="backToCartItems()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        <span>BACK TO BAG</span>
+                    </button>
+                    <span class="step-indicator">STEP 2 OF 2: DISPATCH</span>
+                </div>
+
+                <div class="checkout-scroll-body">
+                    <!-- Quick Order Items Recap -->
+                    <div class="checkout-mini-recap" id="checkoutMiniRecap">
+                        <!-- Populated dynamically via app.js -->
+                    </div>
+
+                    <!-- Fast Campus Delivery Form -->
+                    <form id="drawerCheckoutForm" onsubmit="completeDrawerOrder(event)">
+                        <div class="checkout-form-section">
+                            <span class="form-section-label">[1] CAMPUS DELIVERY DESTINATION</span>
+                            <div class="form-group">
+                                <label for="checkoutName">STUDENT FULL NAME</label>
+                                <input type="text" id="checkoutName" required value="Alex Mercer" placeholder="e.g. Alex Mercer" class="clean-checkout-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkoutDorm">DORM HALL & ROOM # / CAMPUS ADDRESS</label>
+                                <input type="text" id="checkoutDorm" required value="Founders Hall, Suite 412" placeholder="e.g. Hayden Hall, Rm 304 or Street Address" class="clean-checkout-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkoutPhone">MOBILE PHONE (FOR DORM DELIVERY SMS PIN)</label>
+                                <input type="tel" id="checkoutPhone" required value="(555) 349-2810" placeholder="(555) 000-0000" class="clean-checkout-input">
+                            </div>
+                        </div>
+
+                        <div class="checkout-form-section">
+                            <span class="form-section-label">[2] INSTANT PAYMENT METHOD</span>
+                            <div class="payment-method-grid">
+                                <label class="payment-option-card active">
+                                    <input type="radio" name="drawerPaymentMethod" value="apple_pay" checked>
+                                    <span class="payment-icon"> / GPay</span>
+                                    <span class="payment-title">1-Click Express</span>
+                                </label>
+                                <label class="payment-option-card">
+                                    <input type="radio" name="drawerPaymentMethod" value="card">
+                                    <span class="payment-icon">💳</span>
+                                    <span class="payment-title">Credit / Debit</span>
+                                </label>
+                                <label class="payment-option-card">
+                                    <input type="radio" name="drawerPaymentMethod" value="student_card">
+                                    <span class="payment-icon">🎓</span>
+                                    <span class="payment-title">Student Card</span>
+                                </label>
+                                <label class="payment-option-card">
+                                    <input type="radio" name="drawerPaymentMethod" value="klarna">
+                                    <span class="payment-icon">⚡</span>
+                                    <span class="payment-title">Klarna (4x)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Total Callout & Place Order Button -->
+                        <div class="checkout-submit-bar">
+                            <div class="checkout-final-row">
+                                <span class="final-charge-label">TOTAL CHARGE:</span>
+                                <span id="checkoutDrawerTotalDisplay" class="final-charge-amount">$0.00</span>
+                            </div>
+
+                            <button type="submit" class="checkout-btn order-now-btn">
+                                <span>CONFIRM & DISPATCH ORDER</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+                            <span class="security-guarantee-note">🔒 Encrypted 256-Bit SSL Checkout • Zero Hidden Surcharges</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- VIEW 3: ORDER CONFIRMED RECEIPT VIEW -->
+            <div class="cart-view-container" id="cartReceiptView" style="display: none;">
+                <div class="receipt-success-body" id="cartReceiptBody">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal"></div>
+
+    <!-- Student Pass Modal -->
+    <div class="modal-overlay" id="studentPassModal">
+        <div class="modal-box student-modal-box">
+            <button class="modal-close-btn" onclick="closeStudentPassModal()">✕</button>
+            <div class="student-modal-header">
+                <span class="section-label">[INSTANT VERIFICATION]</span>
+                <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 4px 0;">CAMPUS STUDENT PASS</h3>
+                <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                    Lock in 20% off all drops, priority dorm shipping, and exclusive access to unreleased samples.
+                </p>
+            </div>
+
+            <form class="student-form" onsubmit="verifyStudentStatus(event)">
+                <div class="form-group">
+                    <label class="form-label">YOUR FULL NAME</label>
+                    <input type="text" id="studentNameInput" class="form-input" placeholder="e.g. Marcus Vance" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">COLLEGE / UNIVERSITY EMAIL (.EDU OR .AC)</label>
+                    <input type="email" id="studentEmailInput" class="form-input" placeholder="name@university.edu" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">SELECT YOUR CAMPUS</label>
+                    <select id="studentUniSelect" class="form-input"></select>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 15px; margin-top: 8px;">
+                    VERIFY & UNLOCK 20% OFF NOW
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Live Rebrand Widget -->
+    <div class="floating-rebrand-dock" title="Change brand name placeholder in real-time">
+        <span class="rebrand-label">BRAND:</span>
+        <input type="text" id="liveRebrandInput" class="rebrand-input" value="[UNTITLED]" placeholder="Enter name...">
+    </div>
+
+    <!-- Floating Lo-Fi Ambient Campus Audio Player -->
+    <div class="floating-audio-dock" id="floatingAudioDock" onclick="toggleLofiAudio()" title="Click to toggle generative Lo-Fi study beats">
+        <div class="audio-equalizer-bars" aria-hidden="true">
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+        </div>
+        <span class="audio-label" id="audioStatusLabel">CAMPUS RADIO [OFF]</span>
+    </div>
+
+    <!-- Mobile Sticky Bottom Navigation Dock -->
+    <nav class="mobile-bottom-bar" id="mobileBottomBar" aria-label="Mobile Navigation Dock">
+        <a href="index.html" class="mobile-bottom-tab">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>HOME</span>
+        </a>
+        <a href="f1.html" class="mobile-bottom-tab">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <span>F1</span>
+        </a>
+        <a href="sports.html" class="mobile-bottom-tab">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m4.93 4.93 4.24 4.24m5.66 5.66 4.24 4.24m-14.14 0 4.24-4.24m5.66-5.66 4.24-4.24"/>
+            </svg>
+            <span>SPORTS</span>
+        </a>
+        <a href="custom.html" class="mobile-bottom-tab active highlight" style="color: #c77dff;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            </svg>
+            <span>CUSTOM</span>
+        </a>
+        <a href="streetwear.html" class="mobile-bottom-tab">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                <path d="M3 6h18"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            <span>STREET</span>
+        </a>
+        <a href="javascript:void(0)" class="mobile-bottom-tab" onclick="openCartDrawer()">
+            <div class="mobile-bag-icon-wrap">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                <span class="mobile-cart-badge cart-counter">0</span>
+            </div>
+            <span>BAG</span>
+        </a>
+    </nav>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="products.js"></script>
+    <script src="audio.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
